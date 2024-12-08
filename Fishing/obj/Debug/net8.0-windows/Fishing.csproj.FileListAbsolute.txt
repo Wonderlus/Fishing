@@ -1,0 +1,16 @@
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.exe
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.deps.json
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.runtimeconfig.json
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.pdb
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.Form1.resources
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.GenerateResource.cache
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.AssemblyInfoInputs.cache
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.AssemblyInfo.cs
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.CoreCompileInputs.cache
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.dll
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\refint\Fishing.dll
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.pdb
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.genruntimeconfig.cache
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\ref\Fishing.dll
