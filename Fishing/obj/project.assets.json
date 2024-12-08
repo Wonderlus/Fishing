@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\C#\\Fishing\\Fishing\\Fishing.csproj",
+      "projectUniqueName": "E:\\Coding\\C#\\Fishing\\Fishing\\Fishing.csproj",
       "projectName": "Fishing",
-      "projectPath": "D:\\Coding\\C#\\Fishing\\Fishing\\Fishing.csproj",
+      "projectPath": "E:\\Coding\\C#\\Fishing\\Fishing\\Fishing.csproj",
       "packagesPath": "C:\\Users\\iliya\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\C#\\Fishing\\Fishing\\obj\\",
+      "outputPath": "E:\\Coding\\C#\\Fishing\\Fishing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

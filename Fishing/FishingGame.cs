@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fishing.components.Items;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -80,22 +81,30 @@ namespace Fishing
 
         private void CastFishingRod()
         {
+            Item caughtItem;
             // Генерация случайного объекта
             bool isFish = random.Next(0, 2) == 0; // 50% шанс поймать рыбу
 
             if (isFish)
             {
-                score += 10;
-                MessageBox.Show("Вы поймали рыбу! +10 очков");
+                caughtItem = new Fish("Карась", 15, "../../../templates/boots.png");
+                score += caughtItem.Value;
+                MessageBox.Show(caughtItem.GetCaught());
             }
             else
             {
-                score -= 5;
-                MessageBox.Show("Вы поймали мусор... -5 очков");
+                caughtItem = new Trash("Башмак", -10, "../../../templates/boots.png");
+                score += caughtItem.Value;
+                MessageBox.Show(caughtItem.GetCaught());
             }
 
             // Обновление очков
             scoreLabel.Text = "Очки: " + score;
+        }
+
+        private void InitializeComponent()
+        {
+
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -109,7 +118,12 @@ namespace Fishing
             if (waterTexture != null)
             {
                 g.DrawImage(waterTexture, 0, 0, waterTexture.Width, waterTexture.Height);
-                
+
+            }
+
+            if (fishingRodTexture != null)
+            {
+                g.DrawImage(fishingRodTexture, this.Width / 2, this.Height, 200, 200);
             }
 
             // Рисуем ряды
@@ -119,12 +133,13 @@ namespace Fishing
                 g.DrawLine(Pens.Black, 0, rowY, this.Width, rowY);
             }
 
-            // Рисуем удочку
-            int rodY = 100 + selectedRow * 80;
-            g.DrawLine(Pens.Black, this.Width / 2, 0, this.Width / 2, rodY - 40);
-            // Рисуем круг на конце удочки
-            int circleSize = 20; // Размер круга
-            g.FillEllipse(Brushes.Black, this.Width / 2 - circleSize / 2, rodY - circleSize / 2 - 40, circleSize, circleSize);
+            //// Рисуем удочку
+            //int rodY = 100 + selectedRow * 80;
+            //g.DrawLine(Pens.Black, this.Width / 2, 0, this.Width / 2, rodY - 40);
+
+            //// Рисуем круг на конце удочки
+            //int circleSize = 20; // Размер круга
+            //g.FillEllipse(Brushes.Black, this.Width / 2 - circleSize / 2, rodY - circleSize / 2 - 40, circleSize, circleSize);
         }
     }
 }

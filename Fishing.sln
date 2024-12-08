@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fishing", "Fishing\Fishing.csproj", "{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fishing", "Fishing\Fishing.csproj", "{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{FCAA92DA-519E-47BF-BCE5-C0EA026F3F0E}"
+	ProjectSection(SolutionItems) = preProject
+		Fishing\FishingGame.cs = Fishing\FishingGame.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

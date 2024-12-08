@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fishing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb30206947b9b16b2c4519225cf554577a7046ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fishing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fishing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
