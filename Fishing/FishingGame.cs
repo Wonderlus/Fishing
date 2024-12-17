@@ -11,7 +11,6 @@ namespace Fishing
     public class FishingGame : Form
     {
         private FishingRod fishingRod;
-        private int selectedRow = 2; // Выбранный ряд (по умолчанию 2)
         private int score = 0;       // Очки
         private System.Windows.Forms.Timer gameTimer;     // Таймер для обновления игры
         private Random random = new Random(); // Рандомный спавн объектов
@@ -19,10 +18,28 @@ namespace Fishing
         private Image waterTexture; // Текстура воды
         private Image trashTexture; // Текстура мусора
         private Image fishTexture; // Текстура рыбы
-        private int riverBottom = 780; 
+        private int riverBottom = 780;
 
+
+        private List<Item> items;
+        private int spawnTimer = 0;
+        private readonly List<(string Name, int Value, string Texture, int Speed)> fishTypes = new List<(string, int , string , int)> 
+        {
+            ("Язь", 15, "../../../templates/fish/1.png", 10),
+            ("Золотая рыбка", 80, "../../../templates/fish/2.png", 60),
+            ("Рыба клоун", 40, "../../../templates/fish/3.png", 30),
+            ("Рыба удильщик", 120, "../../../templates/fish/4.png", 120)
+        };
+
+        private readonly List<(string Name, int Value, string Texture, int Speed)> trashTypes = new List<(string, int, string, int)>
+        {
+            ("Старый ботинок", -45, "../../../templates/trash/boots.png", 45),
+        };
         public FishingGame()
         {
+
+            // Массив предметов
+            items = new List<Item>();
             // Высота картинки - 20 пикселей
             waterTexture = Image.FromFile("../../../templates/river.jpg");
             // Настройки окна
@@ -59,11 +76,7 @@ namespace Fishing
         {
             // Управление выбором ряда
             
-            if (e.KeyCode == Keys.Space)
-            {
-                CastFishingRod();
-            }
-            else if (e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 Application.Exit();
             }
@@ -71,6 +84,7 @@ namespace Fishing
             // Перерисовка экрана
             this.Invalidate();
         }
+
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
             if (fishingRod.isLineCasting)
@@ -95,8 +109,47 @@ namespace Fishing
             
             this.Invalidate();
         }
+
+        private void SpawnRandomItem()
+        {
+            bool isFish = random.Next(0, 1) == 0; // 50% вероятность выбора рыбы или мусора
+            int startY = random.Next(260, this.Height - 80);
+
+            if (isFish)
+            {
+                var fishType = fishTypes[random.Next(fishTypes.Count)];
+                var fish = new Fish(fishType.Name, fishType.Value, fishType.Texture, fishType.Speed);
+                fish.y = startY;
+                items.Add(fish);
+            }
+
+            else
+            {
+                var trashType = trashTypes[random.Next(trashTypes.Count)];
+                var trash = new Trash(trashType.Name, trashType.Value, trashType.Texture, trashType.Speed);
+                trash.y = startY;
+                items.Add(trash);
+            }
+        }
         private void GameTick(object sender, EventArgs e)
         {
+            spawnTimer++;
+            if (spawnTimer >= 20)
+            {
+                SpawnRandomItem();
+                spawnTimer = 0;
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+                item.ChangePosition();
+
+                if(item.x > this.Width)
+                {
+                    items.RemoveAt(i);
+                }
+            }
             // Логика обновления игры
             // Логика хитбоксов - lineY лежит в диапазоне пикселей текстуры рыбы или мусора по Y,
             // и Position.X лежит в диапазоне текстуры, создать отдельную переменную, которая хранит заблокированное значение позиции по X при броске удочки
@@ -124,32 +177,7 @@ namespace Fishing
             } 
 
             this.Invalidate();
-        }
-
-        private void CastFishingRod()
-        {
-            Item caughtItem;
-            // Генерация случайного объекта
-            bool isFish = random.Next(0, 2) == 0; // 50% шанс поймать рыбу
-
-            if (isFish)
-            {
-                caughtItem = new Fish("Карась", 15, "../../../templates/boots.png");
-                score += caughtItem.Value;
-                MessageBox.Show(caughtItem.GetCaught());
-            }
-            else
-            {
-                caughtItem = new Trash("Башмак", -10, "../../../templates/boots.png");
-                score += caughtItem.Value;
-                MessageBox.Show(caughtItem.GetCaught());
-            }
-
-            // Обновление очков
-            scoreLabel.Text = "Очки: " + score;
-        }
-
-        
+        }   
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -162,6 +190,11 @@ namespace Fishing
             {
                 g.DrawImage(waterTexture, 0, 0, waterTexture.Width, waterTexture.Height);
 
+            }
+
+            foreach (var item in items)
+            {
+                item.DrawItem(g);
             }
 
             if (fishingRod.isLineCasting)

@@ -9,7 +9,7 @@ namespace Fishing.components.Items
     public class Trash : Item
     {
 
-        public Trash(string name, int value, string texture) : base(name, value, texture)
+        public Trash(string name, int value, string texture, int speed) : base(name, value, texture, speed)
         {
 
         }

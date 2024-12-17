@@ -8,7 +8,7 @@ namespace Fishing.components.Items
 {
     public class Fish : Item
     {
-        public Fish(string name, int value, string texture): base(name, value, texture)
+        public Fish(string name, int value, string texture, int speed): base(name, value, texture, speed)
         {
 
         }
