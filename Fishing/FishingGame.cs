@@ -1,32 +1,36 @@
 ﻿using Fishing.components.Items;
+using Fishing.components.FishingRod;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+
 
 namespace Fishing
 {
     public class FishingGame : Form
     {
+        private FishingRod fishingRod;
         private int selectedRow = 2; // Выбранный ряд (по умолчанию 2)
         private int score = 0;       // Очки
         private System.Windows.Forms.Timer gameTimer;     // Таймер для обновления игры
         private Random random = new Random(); // Рандомный спавн объектов
         private Label scoreLabel; // Вывод набранных очков
         private Image waterTexture; // Текстура воды
-        private Image fishingRodTexture; // Текстура удочки
         private Image trashTexture; // Текстура мусора
         private Image fishTexture; // Текстура рыбы
+        private int riverBottom = 780; 
 
         public FishingGame()
         {
+            // Высота картинки - 20 пикселей
             waterTexture = Image.FromFile("../../../templates/river.jpg");
-            fishingRodTexture = Image.FromFile("../../../templates/fishingRod.png");
             // Настройки окна
             this.Text = "Игра: Рыбалка";
-            this.Size = new Size(800, 600);
+            this.Size = new Size(1280, 800);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.DoubleBuffered = true; // Уменьшение мерцания графики
-
+            fishingRod = new FishingRod("../../../templates/fishingRod.png");
             // Элемент для отображения очков
             scoreLabel = new Label
             {
@@ -44,22 +48,18 @@ namespace Fishing
             gameTimer.Tick += GameTick;
             gameTimer.Start();
 
+
+            this.MouseMove += OnMouseMove;
             // Событие нажатия клавиш
             this.KeyDown += OnKeyDown;
+            this.MouseClick += OnMouseClick;
         }
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
             // Управление выбором ряда
-            if (e.KeyCode == Keys.Up && selectedRow > 0)
-            {
-                selectedRow--;
-            }
-            else if (e.KeyCode == Keys.Down && selectedRow < 4)
-            {
-                selectedRow++;
-            }
-            else if (e.KeyCode == Keys.Space)
+            
+            if (e.KeyCode == Keys.Space)
             {
                 CastFishingRod();
             }
@@ -71,11 +71,58 @@ namespace Fishing
             // Перерисовка экрана
             this.Invalidate();
         }
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (fishingRod.isLineCasting)
+            {
+                return;
+            }
 
+            fishingRod.UpdatePosition(new Point(e.X, e.Y));
+            this.Invalidate();
+        }
+
+        private void OnMouseClick(object sender, MouseEventArgs e)
+        {
+            if (!fishingRod.isLineCasting)
+            {
+                
+                fishingRod.isLineCasting = true;
+                fishingRod.isReturning = false;
+                fishingRod.lineY = fishingRod.rodY;
+               
+            }
+            
+            this.Invalidate();
+        }
         private void GameTick(object sender, EventArgs e)
         {
             // Логика обновления игры
-            // Здесь можно генерировать движение предметов или их исчезновение
+            // Логика хитбоксов - lineY лежит в диапазоне пикселей текстуры рыбы или мусора по Y,
+            // и Position.X лежит в диапазоне текстуры, создать отдельную переменную, которая хранит заблокированное значение позиции по X при броске удочки
+            if (fishingRod.isLineCasting)
+            {
+                if(!fishingRod.isReturning)
+                {
+                    fishingRod.lineY += 30;
+                    if(fishingRod.lineY >= riverBottom)
+                    {
+                        
+                        fishingRod.isReturning = true;
+
+                    }
+                }
+
+                else
+                {
+                    fishingRod.lineY -= 30;
+                    if(fishingRod.lineY <= fishingRod.rodY)
+                    {
+                        fishingRod.isLineCasting  = false;
+                    }
+                }
+            } 
+
             this.Invalidate();
         }
 
@@ -102,15 +149,11 @@ namespace Fishing
             scoreLabel.Text = "Очки: " + score;
         }
 
-        private void InitializeComponent()
-        {
-
-        }
+        
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-
             Graphics g = e.Graphics;
 
             // Рисуем фон
@@ -121,25 +164,20 @@ namespace Fishing
 
             }
 
-            if (fishingRodTexture != null)
+            if (fishingRod.isLineCasting)
             {
-                g.DrawImage(fishingRodTexture, this.Width / 2, this.Height, 200, 200);
+                fishingRod.DrawLine(g, fishingRod.circleCenter);
             }
 
             // Рисуем ряды
-            for (int i = 0; i < 5; i++)
-            {
-                int rowY = 100 + i * 80;
-                g.DrawLine(Pens.Black, 0, rowY, this.Width, rowY);
-            }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    int rowY = 100 + i * 80;
+            //    g.DrawLine(Pens.Black, 0, rowY, this.Width, rowY);
+            //}
 
-            //// Рисуем удочку
-            //int rodY = 100 + selectedRow * 80;
-            //g.DrawLine(Pens.Black, this.Width / 2, 0, this.Width / 2, rodY - 40);
-
-            //// Рисуем круг на конце удочки
-            //int circleSize = 20; // Размер круга
-            //g.FillEllipse(Brushes.Black, this.Width / 2 - circleSize / 2, rodY - circleSize / 2 - 40, circleSize, circleSize);
+            fishingRod.Draw(g);
+            
         }
     }
 }
