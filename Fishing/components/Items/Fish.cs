@@ -15,7 +15,7 @@ namespace Fishing.components.Items
 
         public override string GetCaught()
         {
-            return $"Вы поймали рыбу {Name}! +{Value} очков";
+            return $"Вы поймали {Name}! +{Value} очков";
         }
 
     }

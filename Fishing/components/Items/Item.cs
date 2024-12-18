@@ -11,6 +11,8 @@ namespace Fishing.components.Items
 
         public int Speed { get; set; }
 
+        public bool isCaught = false;
+
         public int x = 0;
         public int y = 0;
         public Item(string name, int value, string texture, int speed)
@@ -21,10 +23,7 @@ namespace Fishing.components.Items
             Speed = speed;
         }
 
-        public virtual string GetCaught()
-        {
-            return $"Вы поймали {Name}";
-        }
+        
 
         public virtual void DrawItem(Graphics g) 
         {
@@ -36,7 +35,19 @@ namespace Fishing.components.Items
 
         public virtual void ChangePosition()
         {
-            this.x += this.Speed;
+            if (!this.isCaught)
+            {
+                this.x += this.Speed;
+            }
+            else if (this.isCaught)
+            {
+                this.y -= 30;
+            }
+        }
+
+        public virtual string GetCaught()
+        {
+            return $"Вы поймали {Name}";
         }
     }
 }

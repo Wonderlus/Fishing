@@ -15,6 +15,7 @@ namespace Fishing
         private System.Windows.Forms.Timer gameTimer;     // Таймер для обновления игры
         private Random random = new Random(); // Рандомный спавн объектов
         private Label scoreLabel; // Вывод набранных очков
+        private Label eventsLabel; // Вывод событий игры
         private Image waterTexture; // Текстура воды
         private Image trashTexture; // Текстура мусора
         private Image fishTexture; // Текстура рыбы
@@ -52,12 +53,22 @@ namespace Fishing
             scoreLabel = new Label
             {
                 Text = "Очки: 0",
-                Font = new Font("Arial", 16),
+                Font = new Font("Roboto", 16),
                 ForeColor = Color.Black,
                 Location = new Point(10, 10),
                 AutoSize = true
             };
             this.Controls.Add(scoreLabel);
+
+            eventsLabel = new Label
+            {
+                Text = "",
+                Font = new Font("Roboto", 16),
+                ForeColor = Color.Black,
+                Location = new Point(600, 10),
+                AutoSize = true
+            };
+            this.Controls.Add(eventsLabel);
 
             // Таймер игры
             gameTimer = new System.Windows.Forms.Timer();
@@ -131,30 +142,56 @@ namespace Fishing
                 items.Add(trash);
             }
         }
+
+        // Логика обновления игры
         private void GameTick(object sender, EventArgs e)
         {
+            scoreLabel.Text = $"Очки: {score}";
             spawnTimer++;
             if (spawnTimer >= 20)
             {
-                SpawnRandomItem();
+                SpawnRandomItem(); 
+                eventsLabel.Text = "";
                 spawnTimer = 0;
             }
 
+            
             for (int i = 0; i < items.Count; i++)
             {
                 var item = items[i];
+                if (fishingRod.isLineCasting)
+                {
+
+                    if ((fishingRod.Position.X >= item.x) & (fishingRod.Position.X <= item.x + 80) & (fishingRod.lineY >= item.y) & (fishingRod.lineY <= item.y + 80)) {
+                        item.isCaught = true;
+                        fishingRod.isReturning = true;
+
+                    }
+                }
                 item.ChangePosition();
 
-                if(item.x > this.Width)
+                if(item.x > this.Width | item.y < 250)
                 {
+                    if (item.isCaught)
+                    {
+                        eventsLabel.Text = item.GetCaught();
+                        score += item.Value;
+                    }
                     items.RemoveAt(i);
+
                 }
             }
-            // Логика обновления игры
+            
             // Логика хитбоксов - lineY лежит в диапазоне пикселей текстуры рыбы или мусора по Y,
             // и Position.X лежит в диапазоне текстуры, создать отдельную переменную, которая хранит заблокированное значение позиции по X при броске удочки
             if (fishingRod.isLineCasting)
             {
+
+                for (int i = 0; i < items.Count; i++)
+                {
+                    var item = items[i];
+
+                }
                 if(!fishingRod.isReturning)
                 {
                     fishingRod.lineY += 30;
@@ -184,8 +221,6 @@ namespace Fishing
             base.OnPaint(e);
             Graphics g = e.Graphics;
 
-            // Рисуем фон
-            //g.Clear(Color.Aqua);
             if (waterTexture != null)
             {
                 g.DrawImage(waterTexture, 0, 0, waterTexture.Width, waterTexture.Height);
@@ -201,13 +236,6 @@ namespace Fishing
             {
                 fishingRod.DrawLine(g, fishingRod.circleCenter);
             }
-
-            // Рисуем ряды
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    int rowY = 100 + i * 80;
-            //    g.DrawLine(Pens.Black, 0, rowY, this.Width, rowY);
-            //}
 
             fishingRod.Draw(g);
             
