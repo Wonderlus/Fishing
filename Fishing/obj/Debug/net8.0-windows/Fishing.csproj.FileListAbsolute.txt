@@ -34,3 +34,12 @@ E:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\ref\Fishing.dll
 E:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.FishingGame.resources
 D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.FishingGame.resources
 D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.sourcelink.json
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.Asio.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.Core.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.Midi.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.WinForms.dll
+D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.WinMM.dll
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.AssemblyReference.cache
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.Up2Date

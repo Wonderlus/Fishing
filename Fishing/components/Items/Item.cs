@@ -11,6 +11,8 @@ namespace Fishing.components.Items
 
         public int Speed { get; set; }
 
+        public int BaseSpeed { get; private set; }
+
         public bool isCaught = false;
 
         public int x = 0;
@@ -21,11 +23,12 @@ namespace Fishing.components.Items
             Value = value;
             Texture = Image.FromFile(texture);
             Speed = speed;
+            BaseSpeed = speed;
         }
 
         
 
-        public virtual void DrawItem(Graphics g) 
+        public void DrawItem(Graphics g) 
         {
             if (Texture != null)
             {
@@ -33,7 +36,7 @@ namespace Fishing.components.Items
             }
         }
 
-        public virtual void ChangePosition()
+        public void ChangePosition()
         {
             if (!this.isCaught)
             {

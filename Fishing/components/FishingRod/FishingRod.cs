@@ -10,7 +10,7 @@ namespace Fishing.components.FishingRod
         public bool drawLine;
         public bool mouseLocked;
         public Point circleCenter;
-        public bool isLineCasting = false; // Удочка идет вниз
+        public bool isLineCasting = false; // Удочка в принципе закинута
         public bool isReturning = false; // Удочка поднимается
         public int lineY; // Текущая позиция линии по Y
         public int rodX = 640; // Позиция удочки по X

@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Coding\\C#\\Fishing\\",
+  "WorkspaceRootPath": "D:\\Coding\\C#\\Fishing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|e:\\coding\\c#\\fishing\\fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|e:\\coding\\c#\\fishing\\fishing\\components\\items\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Fishing\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|e:\\coding\\c#\\fishing\\fishing\\components\\fishingrod\\fishingrod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\fishingrod\\fishingrod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|e:\\coding\\c#\\fishing\\fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|e:\\coding\\c#\\fishing\\fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\fishingrod\\fishingrod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\fishingrod\\fishingrod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,67 +46,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FishingGame.cs",
-              "DocumentMoniker": "E:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
-              "RelativeDocumentMoniker": "Fishing\\FishingGame.cs",
-              "ToolTip": "E:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
-              "RelativeToolTip": "Fishing\\FishingGame.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwB0AAAAWAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "SoundManager.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs",
+              "RelativeDocumentMoniker": "Fishing\\SoundManager.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs",
+              "RelativeToolTip": "Fishing\\SoundManager.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA3wFYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T15:09:51.853Z",
+              "WhenOpened": "2025-05-12T20:39:32.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Trash.cs",
-              "DocumentMoniker": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Trash.cs",
-              "RelativeDocumentMoniker": "Fishing\\components\\Items\\Trash.cs",
-              "ToolTip": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Trash.cs",
-              "RelativeToolTip": "Fishing\\components\\Items\\Trash.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T18:55:59.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Fish.cs",
-              "DocumentMoniker": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
               "RelativeDocumentMoniker": "Fishing\\components\\Items\\Fish.cs",
-              "ToolTip": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
               "RelativeToolTip": "Fishing\\components\\Items\\Fish.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T18:55:53.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Item.cs",
-              "DocumentMoniker": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Item.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Item.cs",
               "RelativeDocumentMoniker": "Fishing\\components\\Items\\Item.cs",
-              "ToolTip": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Item.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Item.cs",
               "RelativeToolTip": "Fishing\\components\\Items\\Item.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAwwCsAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowBgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T18:55:43.792Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "FishingRod.cs",
-              "DocumentMoniker": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\FishingRod\\FishingRod.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\FishingRod\\FishingRod.cs",
               "RelativeDocumentMoniker": "Fishing\\components\\FishingRod\\FishingRod.cs",
-              "ToolTip": "E:\\Coding\\C#\\Fishing\\Fishing\\components\\FishingRod\\FishingRod.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\FishingRod\\FishingRod.cs",
               "RelativeToolTip": "Fishing\\components\\FishingRod\\FishingRod.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAkwBUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T13:37:07.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Trash.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Trash.cs",
+              "RelativeDocumentMoniker": "Fishing\\components\\Items\\Trash.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Trash.cs",
+              "RelativeToolTip": "Fishing\\components\\Items\\Trash.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T18:55:59.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FishingGame.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
+              "RelativeDocumentMoniker": "Fishing\\FishingGame.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
+              "RelativeToolTip": "Fishing\\FishingGame.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwD8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T15:09:51.853Z",
               "EditorCaption": ""
             }
           ]

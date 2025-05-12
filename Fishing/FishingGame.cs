@@ -10,6 +10,7 @@ namespace Fishing
 {
     public class FishingGame : Form
     {
+        private SoundManager soundManager;
         private FishingRod fishingRod;
         private int score = 0;       // Очки
         private System.Windows.Forms.Timer gameTimer;     // Таймер для обновления игры
@@ -21,6 +22,12 @@ namespace Fishing
         private Image fishTexture; // Текстура рыбы
         private int riverBottom = 780;
 
+        private bool isCurrentActive = false;
+        private float currentEffect = 1f; // 1 - обычная скорость, 2 - ускорение, 0.5 - замедление
+        private int currentDuration = 0;
+
+        private int fishCombo = 0;
+        private int comboMultiplier = 1;
 
         private List<Item> items;
         private int spawnTimer = 0;
@@ -29,7 +36,7 @@ namespace Fishing
             ("Язь", 15, "../../../templates/fish/1.png", 10),
             ("Золотая рыбка", 80, "../../../templates/fish/2.png", 60),
             ("Рыба клоун", 40, "../../../templates/fish/3.png", 30),
-            ("Рыба удильщик", 120, "../../../templates/fish/4.png", 120)
+            ("Рыба удильщик", 120, "../../../templates/fish/4.png", 90)
         };
 
         private readonly List<(string Name, int Value, string Texture, int Speed)> trashTypes = new List<(string, int, string, int)>
@@ -38,7 +45,8 @@ namespace Fishing
         };
         public FishingGame()
         {
-
+            soundManager = new SoundManager();
+            soundManager.PlayBackgroundMusic();
             // Массив предметов
             items = new List<Item>();
             // Высота картинки - 20 пикселей
@@ -83,6 +91,12 @@ namespace Fishing
             this.MouseClick += OnMouseClick;
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            soundManager.Dispose();
+            base.OnFormClosed(e);
+        }
+
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
             // Управление выбором ряда
@@ -107,17 +121,19 @@ namespace Fishing
             this.Invalidate();
         }
 
-        private void OnMouseClick(object sender, MouseEventArgs e)
+        private async void OnMouseClick(object sender, MouseEventArgs e)
         {
             if (!fishingRod.isLineCasting)
             {
                 
+                await soundManager.PlayRandomCastAsync();
                 fishingRod.isLineCasting = true;
                 fishingRod.isReturning = false;
                 fishingRod.lineY = fishingRod.rodY;
-               
+
+
             }
-            
+
             this.Invalidate();
         }
 
@@ -155,6 +171,28 @@ namespace Fishing
                 spawnTimer = 0;
             }
 
+            if (!isCurrentActive && random.Next(0, 100) < 15)
+            {
+                isCurrentActive = true;
+                currentDuration = random.Next(50, 100);
+                currentEffect = random.Next(0, 2) == 0 ? 2f : 0.5f;
+                eventsLabel.Text = $"Сработало течение {currentEffect}";
+            }
+
+            if (isCurrentActive)
+            {
+                currentDuration--;
+                if (currentDuration <= 0)
+                {
+                    isCurrentActive = false;
+                    currentEffect = 1f;
+                }
+            }
+
+            foreach (var item in items)
+            {
+                item.Speed = (int)(item.BaseSpeed * currentEffect);
+            }
             
             for (int i = 0; i < items.Count; i++)
             {
@@ -174,8 +212,19 @@ namespace Fishing
                 {
                     if (item.isCaught)
                     {
-                        eventsLabel.Text = item.GetCaught();
-                        score += item.Value;
+                        if (item is Fish)
+                        {
+                            fishCombo++;
+                            comboMultiplier = Math.Min(5, fishCombo);
+                        }
+                        else
+                        {
+                            fishCombo = 0;
+                            comboMultiplier = 1;
+                        }
+
+                        eventsLabel.Text = fishCombo > 1 ? $"Комбо x{comboMultiplier}" : item.GetCaught();
+                        score += item.Value * comboMultiplier;
                     }
                     items.RemoveAt(i);
 
