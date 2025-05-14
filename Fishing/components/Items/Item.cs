@@ -1,4 +1,5 @@
 
+using Fishing.components.FishingRod;
 
 namespace Fishing.components.Items
 {
@@ -6,6 +7,7 @@ namespace Fishing.components.Items
     {
         public string Name { get; set; }
         public int Value { get; set; }
+
 
         public Image Texture { get; set; }
 
@@ -36,7 +38,7 @@ namespace Fishing.components.Items
             }
         }
 
-        public void ChangePosition()
+        public void ChangePosition(int liftSpeed)
         {
             if (!this.isCaught)
             {
@@ -44,7 +46,7 @@ namespace Fishing.components.Items
             }
             else if (this.isCaught)
             {
-                this.y -= 30;
+                this.y -= liftSpeed;
             }
         }
 

@@ -7,6 +7,12 @@ namespace Fishing.components.FishingRod
         public Point Position { get; private set; }
         public Image Texture { get; private set; }
 
+        public int SpeedMultiplier { get; private set; } = 1;
+        public string RodName { get; private set; }
+        public int Price { get; private set; }
+
+
+
         public bool drawLine;
         public bool mouseLocked;
         public Point circleCenter;
@@ -15,10 +21,17 @@ namespace Fishing.components.FishingRod
         public int lineY; // Текущая позиция линии по Y
         public int rodX = 640; // Позиция удочки по X
         public int rodY = 250; // Ограничение удочки в блоке на 250 пикселей сверху
-        public FishingRod(string texturePath) {
+        public FishingRod(string texturePath, string name = "Обычная удочка", int price = 0, int speedMultiplier = 1) {
             Texture = Image.FromFile(texturePath);
             Position = new Point(400, 200);
-            
+            RodName = name;
+            Price = price;
+            SpeedMultiplier = speedMultiplier;
+        }
+
+        public int GetHookSpeed()
+        {
+            return 30 * SpeedMultiplier;
         }
 
         public void UpdatePosition(Point newPosition)

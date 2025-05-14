@@ -7,9 +7,9 @@ public class SoundManager
     // Для фоновой музыки
     private WaveOutEvent backgroundOut;
     private AudioFileReader backgroundReader;
-
     // Для звуков заброса
     private List<AudioFileReader> castReaders;
+    private List<AudioFileReader> notEnoughMoneyReaders;
     private List<WaveOutEvent> castOuts;
     private Random random;
 
@@ -23,7 +23,7 @@ public class SoundManager
         random = new Random();
         castReaders = new List<AudioFileReader>();
         castOuts = new List<WaveOutEvent>();
-
+        notEnoughMoneyReaders = new List<AudioFileReader>();
         // Инициализация фоновой музыки
         backgroundReader = new AudioFileReader("../../../sounds/Main Theme/castlejam.wav");
         backgroundOut = new WaveOutEvent();
@@ -37,6 +37,17 @@ public class SoundManager
             castReaders.Add(reader);
         }
 
+        var notEnoughMoneyFiles = new[]
+        {
+            "Resource_Need4.wav", "Resource_Need16.wav", "Resource_Need17.wav"
+        };
+
+        foreach (var file in notEnoughMoneyFiles)
+        {
+            var reader = new AudioFileReader($"../../../sounds/Info/{file}");
+            notEnoughMoneyReaders.Add(reader);
+        }
+
         // Инициализация других звуков
     }
 
@@ -48,6 +59,27 @@ public class SoundManager
     public void StopBackgroundMusic()
     {
         backgroundOut.Stop();
+    }
+
+    public async Task PlayNotEnoughMoney()
+    {
+        if (notEnoughMoneyReaders.Count == 0) return;
+
+        var index = random.Next(notEnoughMoneyReaders.Count);
+        var reader = notEnoughMoneyReaders[index];
+        var player = new WaveOutEvent();
+
+        await Task.Run(() =>
+        {
+            reader.Position = 0;
+            player.Init(reader);
+            player.Play();
+
+            player.PlaybackStopped += (s, e) =>
+            {
+                player.Dispose();
+            };
+        });
     }
 
     public async Task PlayRandomCastAsync()

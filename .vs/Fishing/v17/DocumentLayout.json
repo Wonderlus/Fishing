@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Coding\\C#\\Fishing\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\shopform\\shopform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\shopform\\shopform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\fishinggame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Fishing\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\soundmanager\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\soundmanager\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +25,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\trash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|d:\\coding\\c#\\fishing\\fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74749E87-F38B-4E2C-A09E-B9B1CD50D15E}|Fishing\\Fishing.csproj|solutionrelative:fishing\\components\\items\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +50,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SoundManager.cs",
-              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs",
-              "RelativeDocumentMoniker": "Fishing\\SoundManager.cs",
-              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\SoundManager.cs",
-              "RelativeToolTip": "Fishing\\SoundManager.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAA3wFYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T20:39:32.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Fish.cs",
-              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
-              "RelativeDocumentMoniker": "Fishing\\components\\Items\\Fish.cs",
-              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
-              "RelativeToolTip": "Fishing\\components\\Items\\Fish.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Title": "SoundManager.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\SoundManager\\SoundManager.cs",
+              "RelativeDocumentMoniker": "Fishing\\components\\SoundManager\\SoundManager.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\SoundManager\\SoundManager.cs",
+              "RelativeToolTip": "Fishing\\components\\SoundManager\\SoundManager.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAzwC8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T18:55:53.557Z",
+              "WhenOpened": "2025-05-14T08:19:08.193Z",
               "EditorCaption": ""
             },
             {
@@ -78,10 +69,34 @@
               "RelativeDocumentMoniker": "Fishing\\components\\Items\\Item.cs",
               "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Item.cs",
               "RelativeToolTip": "Fishing\\components\\Items\\Item.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowBgAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswCoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T18:55:43.792Z",
+              "WhenOpened": "2025-05-13T19:14:56.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShopForm.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\ShopForm\\ShopForm.cs",
+              "RelativeDocumentMoniker": "Fishing\\components\\ShopForm\\ShopForm.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\ShopForm\\ShopForm.cs",
+              "RelativeToolTip": "Fishing\\components\\ShopForm\\ShopForm.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T19:09:42.838Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Fish.cs",
+              "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
+              "RelativeDocumentMoniker": "Fishing\\components\\Items\\Fish.cs",
+              "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\Items\\Fish.cs",
+              "RelativeToolTip": "Fishing\\components\\Items\\Fish.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T18:55:53.557Z"
             },
             {
               "$type": "Document",
@@ -91,10 +106,9 @@
               "RelativeDocumentMoniker": "Fishing\\components\\FishingRod\\FishingRod.cs",
               "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\components\\FishingRod\\FishingRod.cs",
               "RelativeToolTip": "Fishing\\components\\FishingRod\\FishingRod.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T13:37:07.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T13:37:07.554Z"
             },
             {
               "$type": "Document",
@@ -106,18 +120,17 @@
               "RelativeToolTip": "Fishing\\components\\Items\\Trash.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T18:55:59.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T18:55:59.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FishingGame.cs",
               "DocumentMoniker": "D:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
               "RelativeDocumentMoniker": "Fishing\\FishingGame.cs",
               "ToolTip": "D:\\Coding\\C#\\Fishing\\Fishing\\FishingGame.cs",
               "RelativeToolTip": "Fishing\\FishingGame.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwD8AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAIwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T15:09:51.853Z",
               "EditorCaption": ""

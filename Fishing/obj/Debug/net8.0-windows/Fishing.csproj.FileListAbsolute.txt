@@ -43,3 +43,4 @@ D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.WinForms.dll
 D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.AssemblyReference.cache
 D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.csproj.Up2Date
+D:\Coding\C#\Fishing\Fishing\obj\Debug\net8.0-windows\Fishing.ShopForm.resources
