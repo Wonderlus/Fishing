@@ -4,13 +4,17 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using Fishing.components.GameStats;
+using Fishing.components.Items.FishClasses;
+using Fishing.components.Items.TrashClasses;
 
 
 namespace Fishing
 {
     public class FishingGame : Form
     {
-
+        private Button buttonSave;
+        private Button buttonLoad;
         private Button buttonShop;
         private SoundManager soundManager;
         private FishingRod fishingRod;
@@ -37,18 +41,7 @@ namespace Fishing
 
         private List<Item> items;
         private int spawnTimer = 0;
-        private readonly List<(string Name, int Value, string Texture, int Speed)> fishTypes = new List<(string, int , string , int)> 
-        {
-            ("Язь", 15, "../../../templates/fish/1.png", 10),
-            ("Рыба клоун", 40, "../../../templates/fish/3.png", 20),
-            ("Золотая рыбка", 80, "../../../templates/fish/2.png", 30),
-            ("Рыба удильщик", 120, "../../../templates/fish/4.png", 40)
-        };
-
-        private readonly List<(string Name, int Value, string Texture, int Speed)> trashTypes = new List<(string, int, string, int)>
-        {
-            ("Старый ботинок", -45, "../../../templates/trash/boots.png", 45),
-        };
+       
         public FishingGame()
         {
             soundManager = new SoundManager();
@@ -97,6 +90,31 @@ namespace Fishing
             };
             this.Controls.Add(buttonShop);
 
+            buttonSave = new Button
+            {
+                Text = "Сохранить",
+                Location = new Point(this.Width - 120, 50),
+                Size = new Size(100, 30)
+            };
+            buttonSave.Click +=  (s, e) =>
+            {
+                SaveGame();
+            };
+            this.Controls.Add(buttonSave);
+
+            buttonLoad = new Button
+            {
+                Text = "Загрузить",
+                Location = new Point(this.Width - 120, 90),
+                Size = new Size(100, 30)
+            };
+
+            buttonLoad.Click += (s, e) =>
+            {
+                LoadGame();
+            };
+            this.Controls.Add(buttonLoad);
+
             // Таймер игры
             gameTimer = new System.Windows.Forms.Timer();
             gameTimer.Interval = 100; // Обновление каждые 100 мс
@@ -108,6 +126,11 @@ namespace Fishing
             // Событие нажатия клавиш
             this.KeyDown += OnKeyDown;
             this.MouseClick += OnMouseClick;
+        }
+
+        private void ButtonSave_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public void EquipRod(FishingRod newRod)
@@ -166,26 +189,107 @@ namespace Fishing
 
         private void SpawnRandomItem()
         {
-            bool isFish = random.Next(0, 1) == 0; // 50% вероятность выбора рыбы или мусора
+            bool isTrash = random.Next(0, 10) == 0; // 10% вероятность выбора мусора
             int startY = random.Next(260, this.Height - 80);
 
-            if (isFish)
+            Item newItem;
+
+            if (!isTrash)
             {
-                var fishType = fishTypes[random.Next(fishTypes.Count)];
-                var fish = new Fish(fishType.Name, fishType.Value, fishType.Texture, fishType.Speed);
-                fish.y = startY;
-                items.Add(fish);
+                switch (random.Next(0, 4)) // 4 вида рыб
+                {
+                    case 0: newItem = new YaziFish(); break;
+                    case 1: newItem = new ClownFish(); break;
+                    case 2: newItem = new GoldFish(); break;
+                    case 3: newItem = new AnglerFish(); break;
+                    default: newItem = new YaziFish(); break;
+                }
             }
 
             else
             {
-                var trashType = trashTypes[random.Next(trashTypes.Count)];
-                var trash = new Trash(trashType.Name, trashType.Value, trashType.Texture, trashType.Speed);
-                trash.y = startY;
-                items.Add(trash);
+                newItem = new BootTrash(); // пока один вид мусора
+                
             }
+
+            newItem.y = startY;
+            items.Add(newItem);
         }
 
+        // Сохранение
+        private void SaveGame() {
+            soundManager.PlaySave();
+            var saveFileDialog = new SaveFileDialog { 
+                Filter = "Файлы сохранения (*.fish) | *.fish",
+                Title = "Сохранить игру"
+            };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                var state = new GameStats
+                {
+                    Score = this.Score,
+                    FishCombo = this.fishCombo,
+                    ComboMultiplier = this.comboMultiplier,
+                    CurrentRodTexture = fishingRod.TexturePath,
+                    RodSpeedMultiplier = fishingRod.SpeedMultiplier,
+                    Items = this.items,
+                
+                };
+
+                var serializer = new XmlSerializer(typeof(GameStats));
+                using (var stream = File.Create(saveFileDialog.FileName))
+                {
+                    serializer.Serialize(stream, state);
+                }
+
+                MessageBox.Show("Игра успешно сохранена!");
+            };
+        }
+
+        // Загрузка
+        private void LoadGame()
+        {
+            soundManager.PlayLoad();
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Файлы загрузки (*.fish) | *.fish",
+                Title = "Загрузить игру"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var serializer = new XmlSerializer(typeof(GameStats));
+                    using (var stream = File.OpenRead(openFileDialog.FileName))
+                    {
+                        var state = (GameStats)serializer.Deserialize(stream);
+                        this.Score = state.Score;
+                        this.fishCombo = state.FishCombo;
+                        this.comboMultiplier = state.ComboMultiplier;
+                        this.fishingRod = new FishingRod(
+                            state.CurrentRodTexture,
+                            "Удочка",
+                            0,
+                            state.RodSpeedMultiplier
+                        );
+                        this.items = state.Items;
+                        foreach (var item in items)
+                        {
+                            item.Texture = Image.FromFile(item.TexturePath);
+                        }
+
+                        scoreLabel.Text = $"Золото: {this.Score}";
+                        this.Invalidate();
+
+                        MessageBox.Show("Игра загружена успешно");
+                    }
+                }
+                catch (Exception exception) {
+                    MessageBox.Show($"Ошибка загрузки: {exception.Message}");
+                }
+            }
+
+        }
         // Логика обновления игры
         private void GameTick(object sender, EventArgs e)
         {

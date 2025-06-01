@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fishing.components.Items
 {
+    [Serializable]
     public class Trash : Item
     {
 
+        public Trash(): base(){}
         public Trash(string name, int value, string texture, int speed) : base(name, value, texture, speed)
         {
 
@@ -16,7 +18,7 @@ namespace Fishing.components.Items
 
         public override string GetCaught()
         {
-            return $"Вы поймали {Name}... -{Value} очков";
+            return $"Вы поймали {Name}... {Value} очков";
         }
 
     }

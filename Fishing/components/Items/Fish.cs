@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Fishing.components.Items
 {
+    [Serializable]
     public class Fish : Item
     {
+
+        public Fish() : base() { }
         public Fish(string name, int value, string texture, int speed): base(name, value, texture, speed)
         {
 

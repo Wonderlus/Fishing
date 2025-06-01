@@ -28,7 +28,6 @@ public class SoundManager
         backgroundReader = new AudioFileReader("../../../sounds/Main Theme/castlejam.wav");
         backgroundOut = new WaveOutEvent();
         backgroundOut.Init(backgroundReader);
-
         // Инициализация звуков заброса
         var castFiles = new[] { "cast1.wav", "cast2.wav", "cast3.wav", "cast4.wav" };
         foreach (var file in castFiles)
@@ -79,6 +78,45 @@ public class SoundManager
             {
                 player.Dispose();
             };
+        });
+    }
+    public async Task PlaySave()
+    {
+
+        await Task.Run(() =>
+        {
+            using (var reader = new AudioFileReader("../../../sounds/info/General_Saving.wav"))
+            using (var player = new WaveOutEvent())
+            {
+                player.Init(reader);
+                player.Play();
+          
+                while (player.PlaybackState == PlaybackState.Playing)
+                {
+                    Thread.Sleep(100);
+                }
+            }
+            
+            
+        });
+    }
+
+    public async Task PlayLoad()
+    {
+        await Task.Run(() =>
+        {
+            using (var reader = new AudioFileReader("../../../sounds/info/General_Loading.wav"))
+            using (var player = new WaveOutEvent())
+            {
+                player.Init(reader);
+                player.Play();
+                while (player.PlaybackState == PlaybackState.Playing)
+                {
+                    Thread.Sleep(100);
+                }
+            }
+
+
         });
     }
 
