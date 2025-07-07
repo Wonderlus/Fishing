@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Fishing</id>
+    <version>1.0.0</version>
+    <authors>Fishing</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="f00b7b97959a07ddff8aa670d4710e876513fe5a" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="NAudio" version="2.2.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.runtimeconfig.json" target="lib\net8.0-windows7.0\Fishing.runtimeconfig.json" />
+    <file src="D:\Coding\C#\Fishing\Fishing\bin\Debug\net8.0-windows\Fishing.dll" target="lib\net8.0-windows7.0\Fishing.dll" />
+  </files>
+</package>
